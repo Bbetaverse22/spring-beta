@@ -3,11 +3,17 @@ package com.cydeo.service;
 import com.cydeo.model.Comment;
 import com.cydeo.proxy.CommentNotificationProxy;
 import com.cydeo.repository.CommentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+//@Scope("prototype")
+//@Scope(BeanDefinition.SCOPE_PROTOTYPE)
+//@Scope("singleton") // this is default, can be removed and same result
+@Lazy
 public class CommentService {
 
     // since we never change CommentRepository this is why we use private final
@@ -17,6 +23,7 @@ public class CommentService {
     public CommentService(CommentRepository commentRepository, @Qualifier("PUSH") CommentNotificationProxy commentNotificationProxy) {
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
+        System.out.println("hello");
     }
 
     public void publishComment(Comment comment){

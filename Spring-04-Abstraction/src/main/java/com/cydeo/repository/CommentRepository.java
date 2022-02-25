@@ -1,2 +1,7 @@
-package com.cydeo.repository;public interface CommentRepository {
+package com.cydeo.repository;
+
+import com.cydeo.model.Comment;
+
+public interface CommentRepository {
+    void storeComment(Comment comment);
 }
