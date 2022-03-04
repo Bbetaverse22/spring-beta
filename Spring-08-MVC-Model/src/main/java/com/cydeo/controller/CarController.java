@@ -2,9 +2,7 @@ package com.cydeo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/car")
@@ -19,6 +17,12 @@ public class CarController {
     }
     @RequestMapping("/info2") //localhost:8080/car/info?make=Honda
     public String carInfo2(@RequestParam(value = "make",required = false) String make, Model model){
+
+        model.addAttribute("make", make);
+        return "car/car-info";
+    }
+    @GetMapping(value="/info3") //localhost:8080/car/info3?make=Honda
+    public String carInfo3(@RequestParam String make, Model model){
 
         model.addAttribute("make", make);
         return "car/car-info";
