@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigInteger;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -20,7 +21,8 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
-    private String hireDate;
+    @Column(columnDefinition = "DATE")
+    private LocalDate hireDate;
     @Enumerated(EnumType.STRING)
     private Gender gender;
     private BigInteger salary;
