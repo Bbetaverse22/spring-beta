@@ -15,6 +15,8 @@
         <module>Spring-04-Abstraction</module>
         <module>Spring-05-BeanScope</module>
         <module>Spring-09-Thymeleaf</module>
+        <module>Spring-16-REST</module>
+        <module>Spring-17-REST-Jackson</module>
     </modules>
 
     <properties>
